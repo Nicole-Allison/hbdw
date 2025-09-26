@@ -11,6 +11,10 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
+    <audio autoplay loop hidden>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
     <div id="wrapper">
         <div class="flag__birthday">
             <img src="./images/1.png" alt="" width="350" class="flag__left">
@@ -55,11 +59,11 @@
                     <div class="image">
                         <img src="./images/cake1.jpg" alt="">
                     </div>
-                    <!-- <div class="name">
+                    <div class="name">
                         <i class="fa-solid fa-heart"></i>
                         <span>Happy 20th, wife!</span>
                         <i class="fa-solid fa-heart"></i>
-                    </div> -->
+                    </div>
                     <div class="balloon_one">
                         <img width="100px" src="./images/balloon1.png" alt="">
                     </div>
@@ -150,7 +154,7 @@
 </body>
 <script>
     let datetxt = "September 27, 2005";
-    let datatxtletter = "My love, thank you for being born. I thank God that I get to be part of your life. Today, I wish you all the best, health, lots of joy (at kisses from me, heh) your heart could ever hold. May this year fill your heart with endless reasons to smile and see the good in life. One day soon, I'll hold your hand and we'll celebrate your birthday in person. Happy birthday to you, Elyza.💕";
+    let datatxtletter = "My love, thank you for being born. I thank God that I get to be part of your life. Today, I wish you all the best, health, lots of joy (at kisses from me, heh) your heart could ever hold. May this year fill your heart with endless reasons to smile and see the good in life. One day soon, I'll hold your hand and we'll celebrate your birthday in person. Happy birthday, Elyza.💕";
     let titleLetter = "To you";
     let charArrDate = datetxt.split('');
     let charArrDateLetter = datatxtletter.split('');
@@ -160,6 +164,13 @@
     let currentIndexTitle = 0;
     let date__of__birth = document.querySelector(".date__of__birth span");
     let text__letter = document.querySelector(".text__letter p");
+
+  document.addEventListener("click", () => {
+    const music = document.getElementById("bg-music");
+    music.muted = false;
+    music.play();
+  }, { once: true });
+
     setTimeout(function(){
         timeDatetxt = setInterval(function(){
             if(currentIndex < charArrDate.length){
